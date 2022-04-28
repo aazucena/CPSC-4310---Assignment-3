@@ -5,17 +5,17 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from src.naive_bayes import naive_bayes
-from src.logic_regression import logic_regression
-from src.model import define_data
+from src import naive_bayes, logic_regression, neural_network, model
 
 # main function to run the program
 def main():
     data = pd.read_csv('spam_ham_dataset.csv', index_col=0)
-    features, labels = define_data(data)
-    naive_bayes(features, labels)
+    features, labels = model.define_data(data)
+    naive_bayes.eval(features, labels)
     print('')
-    logic_regression(features, labels)
+    logic_regression.eval(features, labels)
+    print('')
+    neural_network.eval(features, labels)
     print('')
 
     

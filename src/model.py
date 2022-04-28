@@ -8,10 +8,13 @@ def define_data(data):
     features = list(zip(indices, values))
     return features, labels
 
-def get_results(type, y_test, y_pred):
-    accuracy = round(metrics.accuracy_score(y_test, y_pred) * 100, 2)
-    print("Accuracy for {}: {}%".format(type, accuracy))
-    precision = round(metrics.precision_score(y_test, y_pred) * 100, 2)
-    print("Precision for {}: {}%".format(type, precision))
-    recall = round(metrics.recall_score(y_test, y_pred) * 100, 2)
-    print("Recall for for {}: {}%".format(type, recall))
+
+def get_reports(type, y_test, y_pred):
+    print('Reports for {}'.format(type))
+    print('')
+    print('Confusion Matrix:')
+    print(metrics.confusion_matrix(y_test, y_pred))
+    print('')
+    print('Classification Report:')
+    print(metrics.classification_report(y_test, y_pred))
+
