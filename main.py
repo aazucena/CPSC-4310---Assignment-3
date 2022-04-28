@@ -6,12 +6,12 @@
 from os import listdir
 from os.path import isfile, join
 import pandas
+import numpy as np
 
 # main function to run the program
 def main():
-    data = pandas.read_csv('spam_ham_dataset.csv')
-    columns = data.columns
-    data.head()
+    data = pandas.read_csv('spam_ham_dataset.csv', index_col=0)
+    print(data)
     
     
 if __name__ == "__main__":
