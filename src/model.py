@@ -1,5 +1,6 @@
 from sklearn import preprocessing, metrics
 
+# organize and format the dataset
 def define_data(data):
     encoder = preprocessing.LabelEncoder()
     labels = encoder.fit_transform(data['label'].values)
@@ -8,7 +9,7 @@ def define_data(data):
     features = list(zip(indices, values))
     return features, labels
 
-
+# evaluate the score
 def get_reports(type, y_test, y_pred):
     print('Reports for {}'.format(type))
     print('')
@@ -17,4 +18,5 @@ def get_reports(type, y_test, y_pred):
     print('')
     print('Classification Report:')
     print(metrics.classification_report(y_test, y_pred))
+    
 

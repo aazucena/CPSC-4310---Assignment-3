@@ -6,20 +6,18 @@ import matplotlib.pyplot as plt
 
 
 def eval(features, labels):
+    # Intialize the Logistic Regression Classifier
     model = LogisticRegression()
 
+    # Split the data
     X_train, X_test, y_train, y_test = train_test_split(
         np.asarray(features), labels)
 
+    # Train Logistic Regression Classifier based on the data
     model.fit(X_train, y_train)
 
+    # Make predictions
     y_pred = model.predict(X_test)
     
+    # Evaluate with the classification reports
     get_reports("Logic Regression", y_test, y_pred)
-    
-    # y_proba = model.predict_proba(X_test)[::,1]
-    # false_positive_rate, true_positive_rate, _ = metrics.roc_curve(y_test, y_proba)
-    # auc = metrics.roc_auc_score(y_test, y_proba)
-    # plt.plot(false_positive_rate, true_positive_rate, label="text, index, auc="+str(auc))
-    # plt.legend(loc=4)
-    # plt.show()

@@ -1,1 +1,7 @@
 __pycache__
+preprocessed
+preprocessed/*
+raw
+raw/*
+*.csv
+venv/*
